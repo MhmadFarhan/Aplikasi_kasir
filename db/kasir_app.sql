@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2025 at 02:22 AM
+-- Generation Time: Nov 05, 2025 at 03:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `kasir_app`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_transaksi`
+--
+
+CREATE TABLE `detail_transaksi` (
+  `id` int(11) NOT NULL,
+  `transaksi_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `nama_menu` varchar(100) DEFAULT NULL,
+  `harga` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `subtotal` int(11) GENERATED ALWAYS AS (`harga` * `quantity`) STORED
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_transaksi`
+--
+
+INSERT INTO `detail_transaksi` (`id`, `transaksi_id`, `menu_id`, `nama_menu`, `harga`, `quantity`) VALUES
+(7, 18, 8, 'Mie Ayam Bakso', 22000, 1),
+(8, 18, 11, 'Bakso Biasa', 18000, 1),
+(9, 18, 12, 'Es Teh Manis', 5000, 2);
 
 -- --------------------------------------------------------
 
@@ -45,7 +70,8 @@ INSERT INTO `menu` (`id`, `nama`, `harga`, `foto`) VALUES
 (11, 'Bakso Biasa', 18000, '1761310392_bb.jpg'),
 (12, 'Es Teh Manis', 5000, '1761310455_es.jpg'),
 (13, 'Air Mineral', 3000, '1761310429_am.jpg'),
-(14, 'Es Jeruk', 8000, '1761314472_ej.jpeg');
+(14, 'Es Jeruk', 8000, '1761314472_ej.jpeg'),
+(15, 'Mie Ayam Komplit', 25000, '1761386576_mie k.jpg');
 
 -- --------------------------------------------------------
 
@@ -66,7 +92,9 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id`, `total_bayar`, `tanggal`) VALUES
 (1, 22000, '2025-10-23 10:24:07'),
 (2, 5000, '2025-10-23 10:24:12'),
-(3, 54000, '2025-10-24 13:01:16');
+(3, 54000, '2025-10-24 13:01:16'),
+(4, 27000, '2025-10-25 10:01:43'),
+(18, 50000, '2025-11-05 14:17:24');
 
 -- --------------------------------------------------------
 
@@ -95,6 +123,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `role`) VALUES
 --
 
 --
+-- Indexes for table `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `transaksi_id` (`transaksi_id`);
+
+--
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
@@ -118,22 +153,38 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`transaksi_id`) REFERENCES `transaksi` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
