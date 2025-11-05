@@ -627,3 +627,127 @@ body {
     color: #1e1e3f;
 }
 
+/* ------------------------------------ */
+/* G. Detail Transaksi Styling */
+/* ------------------------------------ */
+
+.detail-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 40px auto;
+    border: 1px solid #ddd;
+}
+
+.detail-container h2 {
+    font-size: 26px;
+    color: #1e1e3f;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.detail-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detail-info div {
+    flex: 1;
+    min-width: 250px;
+    background: #f8f8f8;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px solid #e0e0e0;
+}
+
+.detail-info strong {
+    color: #1e1e3f;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+/* Tabel detail transaksi */
+.table-detail {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.table-detail th, 
+.table-detail td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #fff;
+    text-align: left;
+}
+
+.table-detail th {
+    background-color: #1e1e3f;
+    color: white;
+    font-weight: bold;
+}
+
+.table-detail tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-detail tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Total pembayaran */
+.total-section {
+    margin-top: 30px;
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1e1e3f;
+}
+
+.total-section span {
+    color: #27ae60;
+}
+
+/* Tombol kembali */
+.back-button {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #4a7dff;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: #3b6ae6;
+}
+
+.date-badge {
+    display: inline-block;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+/* Hover efek biar lebih interaktif */
+.date-badge:hover {
+    background-color: #bbdefb;
+    color: #0d47a1;
+}

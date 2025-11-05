@@ -91,28 +91,49 @@ if (isset($_POST['checkout'])) {
             $total_bayar += ($item['harga'] * $item['quantity']);
         }
 
-        // Simpan transaksi ke database
-        // CREATE TABLE transaksi (
-        //   id INT AUTO_INCREMENT PRIMARY KEY,
-        //   total_bayar INT NOT NULL,
-        //   tanggal TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        // );
         try {
+            // 1️⃣ Simpan ke tabel transaksi
             $stmt = $pdo->prepare("INSERT INTO transaksi (total_bayar) VALUES (:total)");
             $stmt->execute(['total' => $total_bayar]);
+            
+            // Ambil ID transaksi terakhir (foreign key)
+            $transaksi_id = $pdo->lastInsertId();
+
+            // 2️⃣ Simpan ke tabel detail_transaksi
+            $stmtDetail = $pdo->prepare("
+                INSERT INTO detail_transaksi (transaksi_id, menu_id, nama_menu, harga, quantity, subtotal)
+                VALUES (:transaksi_id, :menu_id, :nama_menu, :harga, :quantity, :subtotal)
+            ");
+
+            foreach ($_SESSION['keranjang'] as $menu_id => $item) {
+                $stmtDetail->execute([
+                    'transaksi_id' => $transaksi_id,
+                    'menu_id' => $menu_id,
+                    'nama_menu' => $item['nama'],
+                    'harga' => $item['harga'],
+                    'quantity' => $item['quantity'],
+                    'subtotal' => $item['harga'] * $item['quantity']
+                ]);
+            }
+
+            // 3️⃣ Update session dan pesan
+            $_SESSION['total_revenue'] += $total_bayar;
+            $message = "🎉 Transaksi senilai Rp. " . number_format($total_bayar, 0, ',', '.') . " berhasil disimpan!";
+
+            // Kosongkan keranjang setelah checkout
+            $_SESSION['keranjang'] = [];
+
         } catch (Exception $e) {
             $message = "❌ Gagal menyimpan transaksi: " . $e->getMessage();
         }
 
-        $_SESSION['total_revenue'] += $total_bayar;
-        $message = "🎉 Transaksi senilai Rp. " . number_format($total_bayar, 0, ',', '.') . " berhasil diproses!";
-        $_SESSION['keranjang'] = [];
+        header('Location: kasir.php?msg=' . urlencode($message));
+        exit();
     } else {
         $message = "Keranjang kosong. Tidak ada yang bisa dibayar.";
+        header('Location: kasir.php?msg=' . urlencode($message));
+        exit();
     }
-
-    header('Location: kasir.php?msg=' . urlencode($message));
-    exit();
 }
 
 // ===========================================
@@ -169,10 +190,12 @@ foreach ($_SESSION['keranjang'] as $item) {
 </div>
 
 <div class="sidebar">
-    <a href="dashboard.php" class="sidebar-nav-item">Dashboard <span>&#9660;</span></a>
-    <a href="kasir.php" class="sidebar-nav-item active">Kasir Menu <span>&#9660;</span></a>
+    <a href="dashboard.php" class="sidebar-nav-item active">Dashboard <span>&#9660;</span></a>
+    <a href="kasir.php" class="sidebar-nav-item">Kasir Menu <span>&#9660;</span></a>
+    <a href="detail_transaksi.php" class="sidebar-nav-item">Detail Transaksi <span>&#9660;</span></a>
     <div class="logout-btn" onclick="location.href='logout.php'">Logout</div>
 </div>
+
 
 <div class="main-content main-container">
     <div class="menu-area">
