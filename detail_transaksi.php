@@ -9,21 +9,43 @@ require_once __DIR__ . '/config/db_config.php';
 // ----------------------
 // Ambil data dari database (kelompokkan per transaksi)
 // ----------------------
-$stmt = $pdo->query("
-    SELECT 
-        t.id AS id_transaksi,
-        DATE(t.tanggal) AS tanggal,
-        GROUP_CONCAT(m.nama SEPARATOR ', ') AS menu,
-        SUM(d.quantity) AS total_jumlah,
-        SUM(d.subtotal) AS total_harga
-    FROM detail_transaksi d
-    JOIN transaksi t ON d.transaksi_id = t.id
-    JOIN menu m ON d.menu_id = m.id
-    GROUP BY t.id, DATE(t.tanggal)
-    ORDER BY t.id DESC
-");
+if (isset($_GET['tanggal']) && $_GET['tanggal'] != "") {
+    $tanggal = $_GET['tanggal'];
+    $stmt = $pdo->prepare("
+        SELECT 
+            t.id AS id_transaksi,
+            DATE(t.tanggal) AS tanggal,
+            GROUP_CONCAT(m.nama SEPARATOR ', ') AS menu,
+            SUM(d.quantity) AS total_jumlah,
+            SUM(d.subtotal) AS total_harga
+        FROM detail_transaksi d
+        JOIN transaksi t ON d.transaksi_id = t.id
+        JOIN menu m ON d.menu_id = m.id
+        WHERE DATE(t.tanggal) = ?
+        GROUP BY t.id, DATE(t.tanggal)
+        ORDER BY t.id DESC
+    ");
+    $stmt->execute([$tanggal]);
+} else {
+    // Tampilkan tanpa filter (data terakhir)
+    $stmt = $pdo->query("
+        SELECT 
+            t.id AS id_transaksi,
+            DATE(t.tanggal) AS tanggal,
+            GROUP_CONCAT(m.nama SEPARATOR ', ') AS menu,
+            SUM(d.quantity) AS total_jumlah,
+            SUM(d.subtotal) AS total_harga
+        FROM detail_transaksi d
+        JOIN transaksi t ON d.transaksi_id = t.id
+        JOIN menu m ON d.menu_id = m.id
+        GROUP BY t.id, DATE(t.tanggal)
+        ORDER BY t.id DESC
+    ");
+}
 
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 // ----------------------
 // Hapus transaksi (otomatis hapus detail karena ON DELETE CASCADE)
@@ -67,10 +89,14 @@ if (isset($_GET['delete'])) {
 
         <div class="main-content">
             <div class="card">
-                <div class="card-header">
-                    <span>Detail Transaksi</span>
-                    <input type="text" value="<?= date('Y-m-d') ?>" readonly>
-                </div>
+            <div class="card-header">
+                <span>Detail Transaksi</span>
+
+                <form action="" method="GET" class="filter-form">
+                    <input type="date" name="tanggal" value="<?= isset($_GET['tanggal']) ? $_GET['tanggal'] : '' ?>">
+                    <button type="submit" class="btn-filter">Filter</button>
+                </form>
+            </div>
                 <table class="table-detail">
                     <tr>
                         <th>No</th>

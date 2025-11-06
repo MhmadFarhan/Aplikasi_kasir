@@ -748,20 +748,60 @@ body {
 /*   BADGE TANGGAL               */
 /* ============================= */
 
-.date-badge {
-    display: inline-block;
-    background-color: #e3f2fd;
-    color: #0d47a1;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 14px;
-    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+.card-header {
+    display: flex;
+    justify-content: space-between;   /* Judul kiri, form kanan */
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 18px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
 }
 
-.date-badge:hover {
-    background-color: #bbdefb;
+.card-header span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e1e3f;
 }
+/* Filter Form Styling */
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antar elemen */
+}
+
+.filter-form input[type="date"] {
+    padding: 6px 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-form input[type="date"]:focus {
+    border-color: #2a9df4;
+    box-shadow: 0 0 4px rgba(42, 157, 244, 0.5);
+}
+
+/* Tombol Filter */
+.btn-filter {
+    padding: 7px 14px;
+    background: #2a9df4;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.btn-filter:hover {
+    background: #0078d7;
+    transform: scale(1.05);
+}
+
 
 /* ============================= */
 /*   TOMBOL HAPUS (IKON)         */
