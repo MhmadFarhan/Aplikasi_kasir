@@ -628,7 +628,7 @@ body {
 }
 
 /* ------------------------------------ */
-/* G. Detail Transaksi Styling */
+/* G. DETAIL TRANSAKSI STYLING */
 /* ------------------------------------ */
 
 .detail-container {
@@ -675,36 +675,42 @@ body {
     font-size: 18px;
 }
 
-/* Tabel detail transaksi */
-.table-detail {
+/* ============================= */
+/*   TABEL DETAIL TRANSAKSI      */
+/* ============================= */
+
+.detail-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     font-size: 18px;
 }
 
-.table-detail th, 
-.table-detail td {
+.detail-table th, 
+.detail-table td {
     padding: 14px 18px;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
     text-align: left;
 }
 
-.table-detail th {
+.detail-table th {
     background-color: #1e1e3f;
     color: white;
     font-weight: bold;
 }
 
-.table-detail tr:nth-child(even) {
+.detail-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.table-detail tr:hover {
+.detail-table tr:hover {
     background-color: #f1f1f1;
 }
 
-/* Total pembayaran */
+/* ============================= */
+/*   TOTAL PEMBAYARAN            */
+/* ============================= */
+
 .total-section {
     margin-top: 30px;
     text-align: right;
@@ -717,7 +723,10 @@ body {
     color: #27ae60;
 }
 
-/* Tombol kembali */
+/* ============================= */
+/*   TOMBOL KEMBALI              */
+/* ============================= */
+
 .back-button {
     display: inline-block;
     margin-top: 25px;
@@ -728,12 +737,16 @@ body {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    transition: background-color 0.2s;
+    transition: 0.2s;
 }
 
 .back-button:hover {
     background-color: #3b6ae6;
 }
+
+/* ============================= */
+/*   BADGE TANGGAL               */
+/* ============================= */
 
 .date-badge {
     display: inline-block;
@@ -746,8 +759,37 @@ body {
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
 }
 
-/* Hover efek biar lebih interaktif */
 .date-badge:hover {
     background-color: #bbdefb;
-    color: #0d47a1;
 }
+
+/* ============================= */
+/*   TOMBOL HAPUS (IKON)         */
+/* ============================= */
+
+.btn-delete {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background-color: #e63946;
+    border-radius: 8px;
+    text-decoration: none !important;
+    color: white !important;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 20px; /* Ukuran ikon */
+}
+
+.btn-delete i {
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c1121f;
+    transform: scale(1.12);
+}
+
+

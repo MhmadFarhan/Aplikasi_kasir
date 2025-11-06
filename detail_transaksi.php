@@ -49,6 +49,8 @@ if (isset($_GET['delete'])) {
     <meta charset="UTF-8">
     <title>Detail Transaksi</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <div class="header">
@@ -69,7 +71,7 @@ if (isset($_GET['delete'])) {
                     <span>Detail Transaksi</span>
                     <input type="text" value="<?= date('Y-m-d') ?>" readonly>
                 </div>
-                <table class="detail-table">
+                <table class="table-detail">
                     <tr>
                         <th>No</th>
                         <th>ID Transaksi</th>
@@ -84,11 +86,17 @@ if (isset($_GET['delete'])) {
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= htmlspecialchars($row['id_transaksi']) ?></td>
-                            <td><span class="date-badge"><?= htmlspecialchars($row['tanggal']) ?></span></td>
+                            <td><?= htmlspecialchars($row['tanggal']) ?></td>
                             <td><?= htmlspecialchars($row['menu']) ?></td>
                             <td><?= htmlspecialchars($row['total_jumlah']) ?></td>
                             <td>Rp <?= number_format($row['total_harga'], 0, ',', '.') ?></td>
-                            <td><a href="detail_transaksi.php?delete=<?= $row['id_transaksi'] ?>" onclick="return confirm('Yakin ingin menghapus transaksi ini?')" class="btn-delete">Hapus</a></td>
+                            <td>
+                                <a href="detail_transaksi.php?delete=<?= $row['id_transaksi'] ?>" 
+                                class="btn-delete" 
+                                onclick="return confirm('Yakin ingin menghapus transaksi ini?')">
+                                <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
