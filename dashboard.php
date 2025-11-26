@@ -36,6 +36,7 @@ $pendapatan_tahun_ini = $query->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
     <a href="dashboard.php" class="sidebar-nav-item active">Dashboard <span>&#9660;</span></a>
     <a href="kasir.php" class="sidebar-nav-item">Kasir Menu <span>&#9660;</span></a>
     <a href="detail_transaksi.php" class="sidebar-nav-item">Detail Transaksi <span>&#9660;</span></a>
+    <a href="monitoring.php" class="sidebar-item active">Monitoring Keuangan ▾</a>
     <div class="logout-btn" onclick="location.href='logout.php'">Logout</div>
 </div>
 

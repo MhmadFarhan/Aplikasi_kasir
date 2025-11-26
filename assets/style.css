@@ -675,8 +675,76 @@ body {
     font-size: 18px;
 }
 
+/* ----------------------------------------- */
+/*                 CARD WRAPPER              */
+/* ----------------------------------------- */
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* Header tabel dan filter */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 18px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.card-header span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e1e3f;
+}
+
+/* Filter Form Styling */
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-form input[type="date"] {
+    padding: 6px 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-form input[type="date"]:focus {
+    border-color: #2a9df4;
+    box-shadow: 0 0 4px rgba(42, 157, 244, 0.5);
+}
+
+.btn-filter {
+    padding: 7px 14px;
+    background: #2a9df4;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.btn-filter:hover {
+    background: #0078d7;
+    transform: scale(1.05);
+}
+
 /* ============================= */
-/*   TABEL DETAIL TRANSAKSI      */
+/*        DETAIL TABLE           */
 /* ============================= */
 
 .detail-table {
@@ -690,7 +758,7 @@ body {
 .detail-table td {
     padding: 14px 18px;
     border-bottom: 1px solid #ccc;
-    text-align: left;
+    text-align: center;
 }
 
 .detail-table th {
@@ -708,7 +776,31 @@ body {
 }
 
 /* ============================= */
-/*   TOTAL PEMBAYARAN            */
+/*   TOMBOL DELETE               */
+/* ============================= */
+
+.btn-delete {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background-color: #e63946;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 20px;
+}
+
+.btn-delete:hover {
+    background-color: #c1121f;
+    transform: scale(1.12);
+}
+
+/* ============================= */
+/*   SECTION TOTAL PEMBAYARAN    */
 /* ============================= */
 
 .total-section {
@@ -724,7 +816,7 @@ body {
 }
 
 /* ============================= */
-/*   TOMBOL KEMBALI              */
+/*   BUTTON KEMBALI              */
 /* ============================= */
 
 .back-button {
@@ -744,92 +836,65 @@ body {
     background-color: #3b6ae6;
 }
 
-/* ============================= */
-/*   BADGE TANGGAL               */
-/* ============================= */
 
-.card-header {
-    display: flex;
-    justify-content: space-between;   /* Judul kiri, form kanan */
-    align-items: center;
-    background: #ffffff;
-    padding: 12px 18px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
-}
+/* === STYLE UNTUK TABEL MONITORING === */
 
-.card-header span {
-    font-size: 20px;
-    font-weight: bold;
-    color: #1e1e3f;
-}
-/* Filter Form Styling */
-.filter-form {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Jarak antar elemen */
-}
-
-.filter-form input[type="date"] {
-    padding: 6px 10px;
-    border: 1px solid #d1d1d1;
-    border-radius: 6px;
-    font-size: 14px;
+.monitoring_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 15px;
     background: #fff;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.filter-form input[type="date"]:focus {
-    border-color: #2a9df4;
-    box-shadow: 0 0 4px rgba(42, 157, 244, 0.5);
-}
-
-/* Tombol Filter */
-.btn-filter {
-    padding: 7px 14px;
-    background: #2a9df4;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.25s;
-}
-
-.btn-filter:hover {
-    background: #0078d7;
-    transform: scale(1.05);
-}
-
-
-/* ============================= */
-/*   TOMBOL HAPUS (IKON)         */
-/* ============================= */
-
-.btn-delete {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 42px;
-    height: 42px;
-    background-color: #e63946;
     border-radius: 8px;
-    text-decoration: none !important;
-    color: white !important;
-    border: none;
-    cursor: pointer;
-    transition: 0.25s;
-    font-size: 20px; /* Ukuran ikon */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.btn-delete i {
+.monitoring_table thead {
+    background: #2c2f7c;
     color: white;
 }
 
-.btn-delete:hover {
-    background-color: #c1121f;
-    transform: scale(1.12);
+.monitoring_table th, .monitoring_table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.monitoring_table tr:hover {
+    background: #f2f2f2;
+    transition: 0.2s;
+}
+
+.monitoring_table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.monitoring_table th:nth-child(1),
+.monitoring_table td:nth-child(1) {
+    width: 50px;
+    text-align: center;
+}
+
+/* ================================
+   MONITORING PAGE CUSTOM STYLE
+================================ */
+
+#chartContainer {
+    width: 100%;
+    height: 280px; /* Grafik lebih kecil */
+}
+
+.filter-select {
+    width: 230px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    font-size: 16px;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.2s ease-in-out;
 }
 
 
