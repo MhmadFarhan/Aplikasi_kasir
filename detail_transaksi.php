@@ -53,12 +53,28 @@ if (isset($_GET['delete'])) {
     $id_transaksi = (int)$_GET['delete'];
 
     try {
-        $delete = $pdo->prepare("DELETE FROM transaksi WHERE id = ?");
-        $delete->execute([$id_transaksi]);
+        $pdo->beginTransaction();
+
+        // 1️⃣ Hapus detail transaksi dulu
+        $stmtDetail = $pdo->prepare(
+            "DELETE FROM detail_transaksi WHERE transaksi_id = ?"
+        );
+        $stmtDetail->execute([$id_transaksi]);
+
+        // 2️⃣ Baru hapus transaksi utama
+        $stmtTransaksi = $pdo->prepare(
+            "DELETE FROM transaksi WHERE id = ?"
+        );
+        $stmtTransaksi->execute([$id_transaksi]);
+
+        $pdo->commit();
+
         header('Location: detail_transaksi.php?msg=deleted');
         exit;
+
     } catch (Exception $e) {
-        echo "<script>alert('Gagal menghapus data: " . $e->getMessage() . "');</script>";
+        $pdo->rollBack();
+        die("Gagal hapus transaksi: " . $e->getMessage());
     }
 }
 
