@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2025 at 03:48 PM
+-- Generation Time: Dec 14, 2025 at 12:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -42,9 +42,11 @@ CREATE TABLE `detail_transaksi` (
 --
 
 INSERT INTO `detail_transaksi` (`id`, `transaksi_id`, `menu_id`, `nama_menu`, `harga`, `quantity`) VALUES
-(7, 18, 8, 'Mie Ayam Bakso', 22000, 1),
-(8, 18, 11, 'Bakso Biasa', 18000, 1),
-(9, 18, 12, 'Es Teh Manis', 5000, 2);
+(1, 1, 8, 'Mie Ayam Bakso', 22000, 1),
+(2, 1, 12, 'Es Teh Manis', 5000, 1),
+(3, 2, 8, 'Mie Ayam Bakso', 22000, 1),
+(4, 3, 9, 'Mie Ayam Biasa', 15000, 1),
+(5, 3, 12, 'Es Teh Manis', 5000, 1);
 
 -- --------------------------------------------------------
 
@@ -90,11 +92,9 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id`, `total_bayar`, `tanggal`) VALUES
-(1, 22000, '2025-10-23 10:24:07'),
-(2, 5000, '2025-10-23 10:24:12'),
-(3, 54000, '2025-10-24 13:01:16'),
-(4, 27000, '2025-10-25 10:01:43'),
-(18, 50000, '2025-11-05 14:17:24');
+(1, 27000, '2025-11-26 12:10:26'),
+(2, 22000, '2025-11-26 12:19:43'),
+(3, 20000, '2025-11-26 12:20:53');
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `role`) VALUES
 (1, 'kasir', '202cb962ac59075b964b07152d234b70', 'kasir'),
-(2, 'manajer', '202cb962ac59075b964b07152d234b70', 'manajer'),
+(2, 'manager', '202cb962ac59075b964b07152d234b70', 'manajer'),
 (3, 'admin', '202cb962ac59075b964b07152d234b70', 'administrator');
 
 --
@@ -156,7 +156,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -168,7 +168,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`

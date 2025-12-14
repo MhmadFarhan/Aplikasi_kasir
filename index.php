@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                 <input type="password" id="password" name="password" placeholder="Masukan Password Anda" required>
             </div>
             
-            <a href="#" class="forgot-link" style="float: left;">Belum Punya Akun?</a>
+            <!-- <a href="#" class="forgot-link" style="float: left;">Belum Punya Akun?</a> -->
             <button type="submit" name="login" class="login-button">Login</button>
         </form>
     </div>
