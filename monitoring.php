@@ -14,32 +14,36 @@ $filter = $_GET['filter'] ?? 'daily';
 
 switch ($filter) {
     case 'monthly':
-        $query = "
-            SELECT DATE_FORMAT(tanggal, '%Y-%m') AS periode, SUM(total_bayar) AS total 
-            FROM transaksi 
-            GROUP BY DATE_FORMAT(tanggal, '%Y-%m') 
-            ORDER BY tanggal ASC";
-        $label = "Pendapatan Bulanan";
+        $where   = "WHERE DATE_FORMAT(tanggal, '%Y-%m') = DATE_FORMAT(CURDATE(), '%Y-%m')";
+        $groupBy = "DATE_FORMAT(tanggal, '%Y-%m')";
+        $label   = "Pendapatan Bulanan";
         break;
 
     case 'yearly':
-        $query = "
-            SELECT YEAR(tanggal) AS periode, SUM(total_bayar) AS total 
-            FROM transaksi 
-            GROUP BY YEAR(tanggal)
-            ORDER BY tanggal ASC";
-        $label = "Pendapatan Tahunan";
+        $where   = "WHERE YEAR(tanggal) = YEAR(CURDATE())";
+        $groupBy = "YEAR(tanggal)";
+        $label   = "Pendapatan Tahunan";
         break;
 
-    default:
-        $query = "
-            SELECT DATE(tanggal) AS periode, SUM(total_bayar) AS total 
-            FROM transaksi 
-            GROUP BY DATE(tanggal)
-            ORDER BY tanggal ASC";
-        $label = "Pendapatan Harian";
+    default: // daily
+        $where   = "WHERE DATE(tanggal) = CURDATE()";
+        $groupBy = "DATE(tanggal)";
+        $label   = "Pendapatan Harian";
         break;
 }
+
+// ===========================
+// DATA GRAFIK
+// ===========================
+$query = "
+    SELECT 
+        $groupBy AS periode,
+        SUM(total_bayar) AS total
+    FROM transaksi
+    $where
+    GROUP BY $groupBy
+    ORDER BY periode ASC
+";
 
 $stmt = $pdo->query($query);
 $chartData = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -47,14 +51,23 @@ $chartData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // ===========================
 // TOTAL PENDAPATAN
 // ===========================
-$totalPendapatan = $pdo->query("SELECT SUM(total_bayar) as total FROM transaksi")
-                       ->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
+$totalPendapatan = $pdo->query("
+    SELECT SUM(total_bayar) AS total
+    FROM transaksi
+    $where
+")->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
 
 // ===========================
 // REKAP TOTAL TRANSAKSI
 // ===========================
-$rekap = $pdo->query("SELECT COUNT(*) as total_transaksi, SUM(total_bayar) as total_nilai FROM transaksi")
-             ->fetch(PDO::FETCH_ASSOC);
+$rekap = $pdo->query("
+    SELECT 
+        COUNT(*) AS total_transaksi,
+        SUM(total_bayar) AS total_nilai
+    FROM transaksi
+    $where
+")->fetch(PDO::FETCH_ASSOC);
+        
 ?>
 
 <!DOCTYPE html>
