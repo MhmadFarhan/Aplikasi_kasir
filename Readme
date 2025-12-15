@@ -9,3 +9,28 @@ password : 123
 username manager
 username : manajer
 password : 123
+
+# 🍽️ Aplikasi Kasir Rumah Makan (PHP Native)
+
+Aplikasi Kasir berbasis web sederhana untuk **rumah makan / usaha kuliner** yang dibuat menggunakan **PHP Native** dan MySQL.  
+Aplikasi ini membantu dalam proses transaksi penjualan, manajemen menu, serta pencatatan pemesanan dengan user interface sederhana.
+
+## 🧰 Fitur Utama
+✔️ Login untuk 3 role: Admin, Kasir, Manager  
+✔️ Manajemen menu (CRUD tambah/edit/hapus)  
+✔️ Proses transaksi kasir  
+✔️ Monitoring transaksi — melihat transaksi yang sudah dilakukan  
+✔️ Detail transaksi per penjualan  
+✔️ Logout  
+*(Daftar fitur sesuai struktur file yang ada di repository)* :contentReference[oaicite:1]{index=1}
+
+## 🛠️ Teknologi yang Digunakan
+| Teknologi | Keterangan |
+|-----------|------------|
+| PHP Native | Bahasa pemrograman backend |
+| MySQL | Database |
+| HTML / CSS | UI tampilan |
+| Bootstrap (opsional) | Styling UI |
+| XAMPP / Localhost | Server lokal |
+
+## 📁 Struktur Folder
