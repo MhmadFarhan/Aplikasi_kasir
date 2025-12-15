@@ -17,7 +17,6 @@ Aplikasi ini membantu dalam proses transaksi penjualan, manajemen menu, serta pe
 
 ## 🧰 Fitur Utama
 ✔️ Login untuk 3 role: Admin, Kasir, Manager
-![Login](Tampilan App/login.png)
 ✔️ Manajemen menu (CRUD tambah/edit/hapus)  
 ✔️ Proses transaksi kasir  
 ✔️ Monitoring transaksi — melihat transaksi yang sudah dilakukan  
