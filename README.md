@@ -35,3 +35,4 @@ Aplikasi ini membantu dalam proses transaksi penjualan, manajemen menu, serta pe
 | XAMPP / Localhost | Server lokal |
 
 ## 📁 Struktur Folder
+ ![Login](https://raw.githubusercontent.com/MhmadFarhan/Aplikasi_kasir/main/tampilan/login.png)
