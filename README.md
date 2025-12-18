@@ -42,12 +42,12 @@ Fitur ini memungkinkan pengguna untuk mengelola data menu makanan dan minuman. P
 Fitur ini digunakan untuk melakukan transaksi penjualan. Kasir dapat memilih menu, menentukan jumlah pesanan, dan menghitung total harga secara otomatis. Setelah transaksi disimpan, data akan tercatat dalam sistem. dengan cara mengklik menu yang dipesan dan mengklik jumlah menu yang dipesan lalu klik bayar maka transaksi akan diproses.
 
 
-- Detail transaksi per penjualan
+- Detail transaksi 
 ![detail](tampilan/detail.png) 
 Detail transaksi menampilkan rincian setiap penjualan, seperti daftar menu yang dibeli, jumlah, harga, dan total pembayaran. Fitur ini membantu dalam pengecekan transaksi dan meminimalkan kesalahan pencatatan. dan dapat menghapus transaksi jika ada kesalahan input atau kesalahan pembayaran.
 
 
-- Monitoring transaksi — melihat transaksi yang sudah dilakukan
+- Monitoring transaksi
 ![Monitoring](tampilan/monitoring.png)  
 
 Fitur monitoring digunakan untuk melihat riwayat transaksi yang telah dilakukan dari transaksi harian, bulanan dan tahunan bisa dilihat. Data ini dapat menampilkan jumlah transaski yang sudah dilakukan dan dapat digunakan untuk analisis usaha, dan evaluasi performa usaha karena di dukung dengan grafik total pendapatan.
