@@ -18,6 +18,7 @@ Dengan antarmuka yang sederhana dan mudah digunakan, aplikasi ini cocok digunaka
 ![Login](tampilan/login.png)
 Fitur login memiliki tiga role utama, yaitu Admin, Kasir, dan Manajer yang dapat masuk kedalam aplikasi username
 dan password seperti dibawah ini :
+
 | Username | password |
 |-----------|------------|
 | admin | 123 |
@@ -26,7 +27,7 @@ dan password seperti dibawah ini :
 
 
 - Dashboard 
-![Dashboard](tampilan/Dashboard.png)
+![Dashboard](tampilan/dashboard.png)
 Dashboard menampilkan ringkasan informasi keuangan utama aplikasi, seperti pendapatan harian, pendapatan bulanan dan pendapatan tahunan.Halaman ini berfungsi sebagai pusat informasi keuangan agar pengguna dapat dengan cepat mengakses informasi keuangan.
 
 
