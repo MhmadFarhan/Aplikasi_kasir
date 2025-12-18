@@ -54,7 +54,7 @@ Fitur monitoring digunakan untuk melihat riwayat transaksi yang telah dilakukan 
 
 ⚙️ Cara Instalasi & Menjalankan Aplikasi
 1. download xampp 
-2. push code pada github (https://github.com/MhmadFarhan/Aplikasi_kasir)
+2. pull code pada github (https://github.com/MhmadFarhan/Aplikasi_kasir)
 3. import database ke phpmyadmin atau sql server lainnya
 4. jalankan aplikasi dengan cara : http://localhost/app_kasir
 5. login dengan username dan password yang sudah diberikan
