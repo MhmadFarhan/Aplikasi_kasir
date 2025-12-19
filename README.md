@@ -19,11 +19,11 @@ Dengan antarmuka yang sederhana dan mudah digunakan, aplikasi ini cocok digunaka
 Fitur login memiliki tiga role utama, yaitu Admin, Kasir, dan Manajer yang dapat masuk kedalam aplikasi username
 dan password seperti dibawah ini :
 
-| Username | password |
-|-----------|------------|
-| admin | 123 |
-| kasir | 123 |
-| manajer| 123 |
+    | Username | password |
+    |-----------|------------|
+    | admin | 123 |
+    | kasir | 123 |
+    | manajer| 123 |
 
 
 - Dashboard 
