@@ -38,7 +38,10 @@ Fitur ini memungkinkan pengguna untuk mengelola data menu makanan dan minuman. P
 1. klik edit menu
 2. selanjutnya dapat memperbarui harga menu, nama menu, gambar menu, dan hapus menu
 3. klik simpan untuk menyimpan, Perubahan akan langsung tersimpan ke database. 
-dan Pada halaman tambah menu, pengguna dapat memasukkan nama menu, harga, dan informasi lain yang dibutuhkan seperti :
+
+dan Pada halaman tambah menu, pengguna dapat memasukkan nama menu, harga, dan informasi lain yang dibutuhkan 
+seperti :
+
 1. klik tambah menu di halaman edit menu
 2. masukan nama menu, harga, dan gambar menu 
 3. klik simpan untuk menambahkan menu pada daftar menu.
