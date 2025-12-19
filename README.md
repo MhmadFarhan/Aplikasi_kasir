@@ -23,7 +23,7 @@ dan password seperti dibawah ini :
     |-----------|------------|
     | admin | 123 |
     | kasir | 123 |
-    | manajer| 123 |
+    | manager| 123 |
 
 
 - Dashboard 
