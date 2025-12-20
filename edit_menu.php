@@ -90,11 +90,12 @@ if (isset($_GET['hapus'])) {
 </div>
 
 <div class="sidebar">
-    <a href="dashboard.php" class="sidebar-nav-item">Dashboard</a>
-    <a href="kasir.php" class="sidebar-nav-item">Kasir Menu</a>
-    <a href="edit_menu.php" class="sidebar-nav-item active">Edit Menu</a>
-    <div class="logout-btn" onclick="location.href='logout.php'">Logout</div>
-</div>
+        <a href="dashboard.php" class="sidebar-item">Dashboard ▾</a>
+        <a href="kasir.php" class="sidebar-item">Kasir Menu ▾</a>
+        <a href="detail_transaksi.php" class="sidebar-item active">Detail Transaksi ▾</a>
+        <a href="monitoring.php" class="sidebar-item">Monitoring Keuangan ▾</a>
+        <div class="logout-btn" onclick="location.href='logout.php'">Logout</div>
+    </div>
 
 <div class="main-content">
     <div class="menu-container">
