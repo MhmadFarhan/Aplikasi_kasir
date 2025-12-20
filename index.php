@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
 <div class="login-container">
     <div class="login-left"></div>
     <div class="login-right">
-        <h1 style="position: absolute; top: 20px; left: 30%; color: #1e1e3f; font-size: 30px; font-weight: bold; margin-top: 30px;">Pondok Bakso Parayangan</h1>
+        <h1 style="position: absolute; top: 20px; left: 30%; color: #1e1e3f; font-size: 20px; font-weight: bold; margin-top: 30px;">Pondok Bakso Parayangan</h1>
         <form action="index.php" method="POST" class="login-form">
             <?php if ($error_message): ?>
                 <p style="color: red; text-align: center; margin-bottom: 10px; padding: 5px; border: 1px solid red; background-color: #ffebeb; border-radius: 4px;"><?php echo $error_message; ?></p>
