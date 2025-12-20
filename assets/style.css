@@ -340,32 +340,75 @@ h1 {
 }
 
 /* Keranjang Kasir */
+/* Keranjang Kasir */
 .cart-area { 
-    width: 280px;          /* dari 350px */
+    width: 260px;                 /* lebih ramping */
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-size: 13px;
 }
 
+/* Judul */
 .cart-area h2 {
-    font-size: 18px;       /* dari 25px */
+    font-size: 15px;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
+/* Item */
 .cart-item { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 6px 0;
-    font-size: 14px;       /* dari 18px */
+    font-size: 13px;
+    border-bottom: 1px dashed #ddd;
 }
 
+/* Nama + qty */
+.cart-item span {
+    font-size: 13px;
+}
+
+/* Kontrol jumlah */
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Harga */
+.cart-item-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Total */
 .cart-total { 
     margin-top: 10px;
     padding-top: 8px;
-    font-size: 15px;       /* dari 20px */
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
 }
 
+/* Tombol Checkout */
 .checkout-button {
-    margin-top: 12px;
+    margin-top: 10px;
+    width: 100%;
     padding: 8px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .checkout-button:hover {
@@ -601,7 +644,7 @@ h1 {
     color: white;
     padding: 4px 10px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 13px;
     text-decoration: none;
     font-weight: bold;
     transition: 0.2s;
